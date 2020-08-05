@@ -4,10 +4,10 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t ashboro/udemymulti -f ./client/Dockerfile.dev .
+    - docker build -t ashboro/udemymulti -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true USERNAME/react-test npm test
+    - docker run -e CI=true ashboro/udemymulti npm test
   
 after-success:
     - docker build -t ashboro/udemymulti-client ./client
