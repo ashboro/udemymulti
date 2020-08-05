@@ -1,0 +1,28 @@
+language: generic
+sudo: required
+
+services:
+    - docker
+before_install:
+    - docker build -t ashboro/udemymulti -f ./client/Dockerfile.dev .
+
+script:
+    - docker run -e CI=true USERNAME/react-test npm test
+  
+after-success:
+    - docker build -t ashboro/udemymulti-client ./client
+    - docker build -t ashboro/udemymulti-nginx ./nginx
+    - docker build -t ashboro/udemymulti-server ./server
+    - docker build -t ashboro/udemymulti-worker ./worker
+    # login to docker cli
+    - echo "$DOCKER_PASSWORD" │ docker login -u "$DOCKER_ID" --password-stdin
+    - docker push ashview/udemymulti-client
+    - docker push ashview/udemymulti-nginx
+    - docker push ashview/udemymulti-server
+    - docker push ashview/udemymulti-worker
+    # take out an push  >?<>>?:{@}~~}¬!""¬``¬
+
+
+
+
+
