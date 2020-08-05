@@ -4,16 +4,16 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t ashboro/udemymulti -f ./client/Dockerfile.dev ./client
+    - docker build -t ashview/udemymulti -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true ashboro/udemymulti npm test
+    - docker run -e CI=true ashview/udemymulti npm test
   
 after-success:
-    - docker build -t ashboro/udemymulti-client ./client
-    - docker build -t ashboro/udemymulti-nginx ./nginx
-    - docker build -t ashboro/udemymulti-server ./server
-    - docker build -t ashboro/udemymulti-worker ./worker
+    - docker build -t ashview/udemymulti-client ./client
+    - docker build -t ashview/udemymulti-nginx ./nginx
+    - docker build -t ashview/udemymulti-server ./server
+    - docker build -t ashview/udemymulti-worker ./worker
     # login to docker cli
     - echo "$DOCKER_PASSWORD" │ docker login -u "$DOCKER_ID" --password-stdin
     - docker push ashview/udemymulti-client
