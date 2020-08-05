@@ -19,7 +19,7 @@ after-success:
     - docker push ashboro/udemymulti-client
     - docker push ashboro/udemymulti-nginx
     - docker push ashboro/udemymulti-server
-    - docker push  ashboro/udemymulti-worker
+    - docker push ashboro/udemymulti-worker
     # take out an push  >?<>>?:{@}~~}¬!""¬``¬
 
 
