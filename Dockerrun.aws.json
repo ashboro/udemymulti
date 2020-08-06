@@ -1,6 +1,6 @@
 {
         "AWSEBDockerrunVersion": 1,
-        "containerDefintions" : [
+        "containerDefinitions" : [
             {
                 "name": "client",
                 "image": "ashboro/udemymulti-client",
