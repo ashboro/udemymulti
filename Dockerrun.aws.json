@@ -3,7 +3,7 @@
         "containerDefintions" : [
             {
                 "name": "client",
-                "image": "ashboro/multi-client",
+                "image": "ashboro/udemymulti-client",
                 "hostname": "client",
                 "essential": false,
                 "memory": 128
@@ -12,7 +12,7 @@
             ,
             {
                 "name": "server",
-                "image": "ashboro/multi-server",
+                "image": "ashboro/udemymulti-server",
                 "hostname": "api",
                 "essential": false,
                 "memory": 128
@@ -21,7 +21,7 @@
             ,
             {
                 "name": "worker",
-                "image": "ashboro/multi-worker",
+                "image": "ashboro/udemymulti-worker",
                 "hostname": "worker",
                 "essential": false,
                 "memory": 128
@@ -30,7 +30,7 @@
             ,
             {
                 "name": "nginx",
-                "image": "ashboro/multi-nginx",
+                "image": "ashboro/udemymulti-nginx",
                 "essential": true,
                 "portMappings": [
                     {
@@ -38,9 +38,7 @@
                         "containerPort": 80
                     }
                 ],
-                "links":[
-                    "client","server"
-                ],
+                "links": ["client","server" ],
                 "memory": 128
         
             }
