@@ -1,5 +1,5 @@
 {
-        "AWSEBDockerrunVersion": 1,
+        "AWSEBDockerrunVersion": 2,
         "containerDefinitions" : [
             {
                 "name": "client",
@@ -7,27 +7,21 @@
                 "hostname": "client",
                 "essential": false,
                 "memory": 128
-        
-            }
-            ,
+            },
             {
                 "name": "server",
                 "image": "ashboro/udemymulti-server",
                 "hostname": "api",
                 "essential": false,
                 "memory": 128
-        
-            }
-            ,
+            },
             {
                 "name": "worker",
                 "image": "ashboro/udemymulti-worker",
                 "hostname": "worker",
                 "essential": false,
                 "memory": 128
-        
-            }
-            ,
+            },
             {
                 "name": "nginx",
                 "image": "ashboro/udemymulti-nginx",
@@ -40,7 +34,6 @@
                 ],
                 "links": ["client","server" ],
                 "memory": 128
-        
             }
         ]
 
